@@ -6,9 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.imooc.dao.LoginDao;
-import com.imooc.dao.RegiserDao;
+
 
 
 @WebServlet("/LoginServlet")
@@ -24,14 +25,20 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		if(new LoginDao().LoginUser(username,password)) {
+			
+			
 			System.out.println("登陆成功");
+			//存入sesson
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			//重定向
 			response.sendRedirect("index.jsp");
 		}else {
 			System.out.println("登陆失败");
-			
+
 			request.setAttribute("info", "登陆失败");
-	
-			request.getRequestDispatcher("infoBoard.jsp").forward(request, response);
+			
+			request.getRequestDispatcher("/infoBoard.jsp").forward(request, response);
 		}
 		
 		
