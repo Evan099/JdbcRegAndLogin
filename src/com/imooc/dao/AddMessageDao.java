@@ -24,7 +24,7 @@ public class AddMessageDao {
 			//连接
 			conn = ConnecionUntil.getConnection();
 			//编写sql
-			String sql = "insert into regandlogin values(null,?,?,?,?)";
+			String sql = "insert into message values(null,?,?,?)";
 			//编译sql
 			pstmt = conn.prepareStatement(sql);
 			//设置参数
@@ -53,12 +53,7 @@ public class AddMessageDao {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
+
 		
 		return null;
 	}

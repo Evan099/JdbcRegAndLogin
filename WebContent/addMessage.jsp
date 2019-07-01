@@ -45,6 +45,7 @@ button a{color: white}
     <div class="box">
         <form action="<%=basePath%>/AddMessageServlet" method="POST">
         <h1>留言讯息</h1>
+
         <input type="text" name="title"   placeholder="请输入标题" 
             class="layui-input">
 
@@ -55,6 +56,24 @@ button a{color: white}
          </form>
     </div>
 
+messageStatue:${messageStatue}<br>
+flag:${flag}
+<%
+    String mess=(String)session.getAttribute("messageStatue");
+	String flag=(String)session.getAttribute("flag");
+ 
+ if(mess!=null && flag == "0"){%>
+ 
+    <script type="text/javascript">
+        alert("<%=mess%>");
+	</script>
+ 
+ <% session.setAttribute("messageStatue", ""); %>
+  <% session.setAttribute("flag", "1"); %>
+<% }%>
 </body>
 
 </html>
+
+
+ 
