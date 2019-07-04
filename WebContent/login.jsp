@@ -29,3 +29,16 @@
 	
 </body>
 </html>
+<%
+String flag = request.getParameter("flag");
+%>
+
+<script>
+var flag = '<%=flag %>';
+if(flag == "1"){
+	alert("请登录系统!");
+}
+
+</script>
+
+

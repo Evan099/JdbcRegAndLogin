@@ -19,6 +19,8 @@ public class RegisterServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+
+		
 		if(username.equals("") || password.equals("")) {
 			request.setAttribute("info", "输入不能为空");
 			

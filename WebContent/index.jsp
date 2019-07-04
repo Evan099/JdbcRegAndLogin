@@ -31,7 +31,7 @@ button:hover a{color: white}
             <span>欢迎您！${username}</span><br>
             <button type="button" class="layui-btn">个人中心</button>
             <button type="button" class="layui-btn"><a href="addMessage.jsp">我要留言</a></button>
-             <button type="button" class="layui-btn">退出</button>
+             <button type="button" class="layui-btn" onclick="quit()">退出</button>
             <ul class="myul">
                 <li>留言留言</li>
                 <li>留言留言</li>
@@ -63,3 +63,17 @@ layui.use('laypage', function(){
   });
 });
 </script>
+
+<script>
+function quit(){
+	alert("即将退出……")
+	window.location.href="/JdbcRegAndLogin/login.jsp";
+
+	<%
+	session.invalidate();
+	%>
+	
+	
+}
+</script>
+
